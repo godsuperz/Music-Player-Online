@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="bgMasterPage.master.cs" Inherits="FrontClient_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SuperZ-在线好音乐</title>
+    <link href="../App_Themes/FrontClient/MasterPage.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../App_Themes/FrontClient/login.css" type="text/css" />
+    <link href="//s1.music.126.net/music.ico?v1" rel="shortcut icon" />
+</head>
+<script type="text/javascript">
+    function login2register() {
+        document.getElementById('id01').style.display = 'none';
+        document.getElementById('id02').style.display = 'block';
+    }
+    function register2login() {
+        document.getElementById('id01').style.display = 'block';
+        document.getElementById('id02').style.display = 'none';
+    }
+</script>
+<body>
+    <div id="scontainer">
+        <div id="sheader">
+            <div class="slogo">
+                <span><a href="Default.aspx"><strong style="font-size:2em">SuperZ</strong> Music</a></span>
+            </div>
+            <div class="snav">
+            <ul>
+                <li><a href="Default.aspx">发现音乐</a></li>
+                <li><a href="#">排行榜</a></li>
+                <li><a href="#">更多</a></li>
+            </ul>
+            </div>
+            <div class="ssearch">
+                <input id="searchBox" type="text" placeholder=" 音乐/专辑/歌手" style="height:30px;width:150px;padding:6px 10px"/>
+            </div>
+            <div class="slogin">
+                <a onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">登录</a>
+                <div class="w3-container">
+                    <%--<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Login</button>--%>
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 600px">
+
+                            <div class="w3-center">
+                                <br />
+                                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                                <img src="picDog.jpg" alt="Avatar" style="width: 30%" class="w3-circle w3-margin-top" />
+                            </div>
+
+                            <form class="w3-container" action="/action_page.php">
+                                <div class="w3-section">
+                                    <label><b><%--Username--%>用户名</b></label>
+                                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="<%--Enter Username--%>请输入用户名" name="usrname" required="required" />
+                                    <label><b><%--Password--%>密码</b></label>
+                                    <input class="w3-input w3-border" type="text" placeholder="<%--Enter Password--%>请输入密码" name="psw" required="required" />
+                                    <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">登录</button>
+                                    <button class="w3-button w3-block w3-green w3-section w3-padding" type="button" onclick="login2register()">注册</button>
+                                    <input class="w3-check w3-margin-top" type="checkbox" checked="checked" />
+                                    <%--Remember me--%>保存密码
+                                </div>
+                            </form>
+
+                            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                                <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red"><%--Cancel--%>取消</button>
+                                <span class="w3-right w3-padding w3-hide-small"><%--Forgot--%>忘了 <a href="#"><%--password--%>密码?</a></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="id02" class="w3-modal">
+                        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 600px">
+
+                            <div class="w3-center">
+                                <br />
+                                <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                                <img src="picDog.jpg" alt="Avatar" style="width: 30%" class="w3-circle w3-margin-top" />
+                            </div>
+
+                            <form class="w3-container" action="/action_page.php">
+                                <div class="w3-section">
+                                    <label><b><%--Username--%>用户名</b></label>
+                                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="<%--Enter Username--%>请输入用户名" name="usrname" required="required" />
+                                    <label><b><%--Password--%>密码</b></label>
+                                    <input class="w3-input w3-border" type="text" placeholder="<%--Enter Password--%>请输入密码" name="psw" required="required" />
+                                    <label><b><%--ConfirmPassword--%>确认密码</b></label>
+                                    <input class="w3-input w3-border" type="text" placeholder="<%--Enter Password--%>请再输入一次密码" name="psw" required="required" />
+                                    <button class="w3-button w3-block w3-green w3-section w3-padding" type="button" >注册</button>
+                                   
+                                </div>
+                            </form>
+
+                            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                                <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red"><%--Cancel--%>取消</button>
+                                <span class="w3-right w3-padding w3-hide-small">&gt;&gt;<a href="#" onclick="register2login()">返回登录</a></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="smain">
+            <div id="contentPage">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="sfooter">
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="FrontClient_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SuperZ-在线好音乐</title>
+    <link href="../App_Themes/FrontClient/MasterPage.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../App_Themes/FrontClient/login.css" type="text/css" />
+    <link href="http://localhost:54908/s1.music.126.net/music.ico?v1" rel="shortcut icon" />
+</head>
+<script type="text/javascript">
+    //function login2register() {
+    //    document.getElementById('id01').style.display = 'none';
+    //    document.getElementById('id02').style.display = 'block';
+    //}
+    //function register2login() {
+    //    document.getElementById('id01').style.display = 'block';
+    //    document.getElementById('id02').style.display = 'none';
+    //}
+    var a = 0;
+    function setTimeOut() {
+
+        document.getElementById("changeImg").src = ("wp" + a + ".jpg");
+        //document.getElementById("abc").src = ("wp" + a + ".png");
+        if (a < 5) {
+            a++;
+        } else {
+            a = 0;
+        }
+        setTimeout("setTimeOut()", 5000);
+    }
+</script>
+<body onload="setTimeOut()">
+    <form id="form1" runat="server">
+        <div id="scontainer">
+            <div id="sheader">
+                <div class="slogo">
+                    <span><a href="Default.aspx"><strong style="font-size: 2em">SuperZ</strong> Music</a></span>
+                </div>
+                <div class="snav">
+                    <ul>
+                        <li><a href="Default.aspx">发现音乐</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+                <div class="ssearch" style="width: 270px">
+                    <asp:TextBox ID="searchBox" runat="server" type="text" placeholder=" 音乐/专辑/歌手" Style="height: 30px; width: 150px; padding: 6px 10px; float: left;"></asp:TextBox>
+                    <asp:Button ID="searchbtn" runat="server" Text="搜索" Style="height: 30px; width: 50px; padding: 6px 10px; float: left;" OnClick="searchbtn_Click" />
+                </div>
+                <div class="slogin" style="width: 170px; padding: 35px 50px 0 50px; float: right">
+                    <asp:Button ID="readyloginbtn" CssClass="w3-button w3-small w3-light-gray" runat="server" Text="登录" OnClick="readyloginbtn_Click" />
+                </div>
+            </div>
+            <asp:Panel ID="loginpanel" style="width:650px;height:350px;margin:0 auto;" CssClass="w3-light-gray w3-animate-zoom" runat="server" Visible="False">
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                <asp:TextBox ID="TextBox1" runat="server">会计法宽带连接阿发领导看见爱上快乐就是打发扩散点击克里斯多夫就；零度空间风口浪尖收到反馈jd.com</asp:TextBox><br />
+                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                <asp:TextBox ID="TextBox2" runat="server">阿斯蒂芬暗室逢灯大师傅</asp:TextBox>
+            </asp:Panel>
+        </div>
+        <div id="smain">
+            <div id="contentPage">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="sfooter">
+            <span><a onclick="document.getElementById('id03').style.display='block'">&gt;&gt;&gt;进入后台&lt;&lt;&lt;</a></span>
+        </div>
+    </form>
+</body>
+</html>
